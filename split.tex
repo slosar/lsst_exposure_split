@@ -1,0 +1,94 @@
+\documentclass[12pt, a4paper]{article}
+\renewcommand{\familydefault}{cmss}
+\setlength{\oddsidemargin}{1.5cm}
+\setlength{\evensidemargin}{0.5cm}
+\setlength{\textwidth}{18.0cm}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.2cm}
+\setlength{\textheight}{24cm}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{2cm}
+\setlength{\topmargin}{0.0cm}
+\addtolength{\topmargin}{-1.1in}
+\addtolength{\oddsidemargin}{-1.0in}
+\usepackage{setspace}
+
+\def\as#1{[AS: {\it #1}] }
+
+
+\begin{document}
+
+\title{Proposal to change 2$\times$15s exposures split in LSST}
+\author{An\v{z}e Slosar, BNL, your name here}
+\maketitle
+
+\section*{Proposal}
+
+We propose to change the current two 15s exposure splitting in the
+LSST observing strategy to one where the length of the first exposure
+is a randomly chosen time in duration between 2s and 28s and the
+length of the second exposure is such that the two add to  30s.
+
+Such strategy will not affect strategy planning outside the 30s window
+but will have significant advantages in terms of systematic control
+the existing strategy.
+
+\section*{Justification}
+
+\subsection*{Unchanged aspects:}
+\begin{enumerate}
+
+\item The overall signal to noise in the 30s is unchanged: there is
+  30s worth of integration time, 30s worth of dark current, two servings
+  of read-out noise. The same is true for time consumption. In short,
+  from SNR perspective, this proposal should be invisible to planning
+  outside 30s window.
+
+\item Ability to remove cosmic rays should remain unchanged.
+\end{enumerate}
+\subsection*{Pros:}
+
+\begin{enumerate}
+\item improved dynamic range: objects that would saturate a 15s
+  exposure might not saturate a shorter one.
+
+\item ability to study flux dependent systematic effects:
+  \begin{itemize}
+  \item brighter-fatter effect on PSF
+  \item detector non-linearity
+  \end{itemize}
+
+\item better transient science:
+  \begin{itemize}
+  \item sensitivity to coherent oscillation frequencies or noise power at all
+    frequencies that are multiples  of $15^{-1}$Hz.
+  \item improved sensitivity on events happening at timescales $<15$s 
+  \end{itemize}
+
+\item ability to better study separation between readout noise, dark
+  current and sky noise. 
+
+\item ability to calibrate the shutter and electronics delays
+
+\item A certain fraction of images will be "lucky images'" (in the
+  technical sense of being nearly diffraction limited)
+
+\end{enumerate}
+
+\subsection*{Cons:}
+
+\begin{enumerate}
+\item would require better algorithms for differencing two 15s
+  exposures, but note that naive differencing would never work due to
+  changes in PSF and observing angles over 15s timescales.
+
+\item - would make it easier to study selection effects for transient
+  phenomena somewhat more difficult, but note again that these will
+  have to be Monte-Carloed anyway.
+
+\item Users working with individual exposures will have one more
+  variable aspect to deal with.
+
+\end{enumerate}
+
+\end{document}
