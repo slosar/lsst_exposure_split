@@ -29,13 +29,30 @@
 \section*{Proposal}
 
 We propose to change the current two 15s exposure splitting in the
-LSST observing strategy to one where the length of the first exposure
-is a randomly chosen time in duration between 2s and 28s and the
-length of the second exposure is such that the two add to  30s.
+LSST observing strategy to:
+
+\begin{enumerate}
+\item Length of the first exposure is a randomly chosen time in
+  duration between 2s and 28s .
+
+\item Length of first exposure is different for every new pair of
+  observations and is \emph{not} quantised to the nearest second.
+
+\item Length of the second exposure is such that the two add to 30s.
+\end{enumerate}
 
 Such strategy will not affect strategy planning outside the 30s window
 but will have significant advantages in terms of systematic control
 the existing strategy.
+
+The lower limit, set to 2s above is set by the requirement that you
+need to have sufficient integration to be able to find and remove
+cosmic rays and the find sufficient stars in the field to characterize
+the PSF at sufficiently high density across the focal plane. The
+precise lower limit should be evaluated through MC simulations.
+
+
+
 
 \section*{Justification}
 
@@ -86,9 +103,9 @@ the existing strategy.
   exposures, but note that naive differencing would never work due to
   changes in PSF and observing angles over 15s timescales.
 
-\item - would make it easier to study selection effects for transient
-  phenomena somewhat more difficult, but note again that these will
-  have to be Monte-Carloed anyway.
+\item This change would make it more difficult to understand selection
+  effects for transient phenomena, but note again that these will have
+  to be Monte-Carloed anyway.
 
 \item Users working with individual exposures will have one more
   variable aspect to deal with.
