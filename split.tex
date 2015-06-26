@@ -19,8 +19,6 @@
 
 
 \begin{document}
-
-
 \begin{center}
 {\Huge
   Proposal to randomize exposure times for LSST.
@@ -53,9 +51,7 @@ exposure times between 2s and 28s. Such strategy will not affect
 strategy planning outside the $2\times 15$s pair window but will have significant
 advantages in terms of systematic control over the existing strategy.
 
-
 \section*{Discussion}
-
 
 \subsection*{Pros:}
 
@@ -66,6 +62,9 @@ advantages in terms of systematic control over the existing strategy.
   \item brighter-fatter effect on PSF
   \item detector non-linearity
 \end{itemize}
+
+\item A convenient new variable to split the data on in order to test for
+  uncorrected flux dependent systematics
 
 \item Easier detection of diffraction spikes and CCD bleeeds.
 
@@ -96,14 +95,12 @@ advantages in terms of systematic control over the existing strategy.
 
 \begin{enumerate}
 
-
 \item PSF variations will be much more pronounced over very short
   exposures and might require further modeling. 
 
 \item Cosmic rays will be preferentially lie in long exposures,
   thus taking up SNR than in standard scheme, but area lost to cosmic
   rays is expected to be negligible.
-
 
 \item It would require better algorithms for differencing two 15s
   exposures, but note that naive differencing would never work due to
@@ -120,10 +117,7 @@ advantages in terms of systematic control over the existing strategy.
 
 \subsection*{Technical considerations}
 
-
 \begin{enumerate}
-
-
 \item The lower limit, set to 2s above is set by the requirement that
   you need to have sufficient integration to be able to find and
   remove cosmic rays and the find sufficient stars in the field to
@@ -137,8 +131,6 @@ advantages in terms of systematic control over the existing strategy.
   design spec with 1s stretch goal and 10s minimum. But as we note
   above, with many exposures at different times we should be able to
   characterize shutter parameters extremely well.
-
-
 
 \item Electronics power dissipation is higher during readout than
   exposure, so there's going to be a small temperature transient at
@@ -156,6 +148,5 @@ advantages in terms of systematic control over the existing strategy.
 
 \item Ability to remove cosmic rays should remain unchanged with 2s exposures.
 \end{enumerate}
-
 
 \end{document}
