@@ -23,8 +23,7 @@
 
 \begin{center}
 {\Huge
-  Proposal to change 2$\times$15s exposures\\ split in
-  LSST
+  Proposal to randomize exposure times for LSST.
 }
 \end{center}
 
@@ -49,10 +48,10 @@ LSST observing strategy to:
 \item Length of the second exposure is such that the two add to 30s.
 \end{enumerate}
 
-Such strategy will not affect strategy planning outside the 30s window
-but will have significant advantages in terms of systematic control
-the existing strategy.
-
+The 2000 exposures of a typical field will thus uniformly sample
+exposure times between 2s and 28s. Such strategy will not affect
+strategy planning outside the $2\times 15$s pair window but will have significant
+advantages in terms of systematic control over the existing strategy.
 
 
 \section*{Discussion}
@@ -61,14 +60,18 @@ the existing strategy.
 \subsection*{Pros:}
 
 \begin{enumerate}
-\item The  dynamic range would be improved: objects that would saturate a 15s
-  exposure might not saturate a shorter one.
 
 \item There will be ability to study flux dependent systematic effects:
   \begin{itemize}
   \item brighter-fatter effect on PSF
   \item detector non-linearity
-  \end{itemize}
+\end{itemize}
+
+\item Easier detection of diffraction spikes and CCD bleeeds.
+
+\item The  dynamic range would be improved, raising the bright
+  magnitude limit by about one magnitude since objects that would saturate a 15s
+  exposure might not saturate a shorter one.
 
 \item The transient science would benefit:
   \begin{itemize}
@@ -77,15 +80,15 @@ the existing strategy.
   \item improved sensitivity on events happening at timescales $<15$s 
   \end{itemize}
 
-\item It would be easier to separate between readout noise, dark
-  current and sky noise.
-
-\item There will be ability to calibrate the shutter and electronics delays.
+\item It will allow one to calibrate the shutter and electronics delays.
 
 \item A certain fraction of images will be "lucky images'" (in the
   technical sense of being nearly diffraction limited) down to
   CCD diffusion length of 200mas (corresponding to mirror size $\sim$
-  6m). Q: Do you still get those at 2s?
+  6m).
+
+\item It would be easier to understand and separate readout noise, dark
+  current and sky noise.
 
 \end{enumerate}
 
@@ -93,11 +96,14 @@ the existing strategy.
 
 \begin{enumerate}
 
-\item A strategy for flat-fielding calibrations would need to be
-  adjusted.
 
 \item PSF variations will be much more pronounced over very short
   exposures and might require further modeling. 
+
+\item Cosmic rays will be preferentially lie in long exposures,
+  thus taking up SNR than in standard scheme, but area lost to cosmic
+  rays is expected to be negligible.
+
 
 \item It would require better algorithms for differencing two 15s
   exposures, but note that naive differencing would never work due to
@@ -132,6 +138,8 @@ the existing strategy.
   above, with many exposures at different times we should be able to
   characterize shutter parameters extremely well.
 
+
+
 \item Electronics power dissipation is higher during readout than
   exposure, so there's going to be a small temperature transient at
   the cadence period. If the exposure time is randomized the readouts
@@ -141,7 +149,10 @@ the existing strategy.
   30s worth of integration time, 30s worth of dark current, two
   servings of read-out noise. The same is true for time
   consumption. In short, from SNR perspective, this proposal should be
-  invisible to planning outside 30s window.
+  invisible to planning outside 30s window. Since the object detection
+  will be done on the coadds, it does not matter whether some
+  exposures are so short that object is not detected in them -- an
+  optimal analysis cannot loose in counting the total number of photons.
 
 \item Ability to remove cosmic rays should remain unchanged with 2s exposures.
 \end{enumerate}
