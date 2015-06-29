@@ -37,8 +37,9 @@ We propose to change the current two 15s exposure splitting in the
 LSST observing strategy to:
 
 \begin{enumerate}
+  
 \item Length of the first exposure is a randomly chosen time in
-  duration between 2s and 28s .
+  duration between 2s and 28s.
 
 \item Length of first exposure is different for every new pair of
   observations and is \emph{not} quantised to the nearest second.
@@ -57,36 +58,39 @@ advantages in terms of systematic control over the existing strategy.
 
 \begin{enumerate}
 
-\item There will be ability to study flux dependent systematic effects:
+\item ability to study flux dependent systematic effects:
   \begin{itemize}
-  \item brighter-fatter effect on PSF
-  \item detector non-linearity
+  \item brighter-fatter effect on point spread function (PSF),
+  \item detector non-linearity;
 \end{itemize}
 
-\item A convenient new variable to split the data on in order to test for
-  uncorrected flux dependent systematics
+\item testing for uncorrected flux dependent systematics by
+  splitting on exposure length;
 
-\item Easier detection of diffraction spikes and CCD bleeeds.
+\item better modelling of the atmospheric turbulence component of the PSF
+  (since 30s is not yet in the long-exposure limit for Kolmogorov
+  turbolence, it would require modeling in any case);
 
-\item The  dynamic range would be improved, raising the bright
-  magnitude limit by about one magnitude since objects that would saturate a 15s
-  exposure might not saturate a shorter one.
+\item easier detection of diffraction spikes and CCD bleeeds;
 
-\item The transient science would benefit:
+\item improvement in the dynamic range, raising the bright
+  magnitude limit by about one magnitude (objects that would
+  saturate a 15s exposure might not saturate a shorter one);
+
+\item benefits to transient science:
   \begin{itemize}
   \item sensitivity to coherent oscillation frequencies or noise power at all
-    frequencies that are multiples  of $15^{-1}$Hz.
-  \item improved sensitivity on events happening at timescales $<15$s 
+    frequencies that are multiples  of $15^{-1}$Hz,
+  \item improved sensitivity on events happening at timescales $<15$s;
   \end{itemize}
 
-\item It will allow one to calibrate the shutter and electronics delays.
+\item calibration of shutter and electronics delays;
 
-\item A certain fraction of images will be "lucky images'" (in the
-  technical sense of being nearly diffraction limited) down to
-  CCD diffusion length of 200mas (corresponding to mirror size $\sim$
-  6m).
+\item existence of "lucky images'" (in the technical sense of being
+  nearly diffraction limited) down to CCD diffusion length of 200mas
+  (corresponding to mirror size $\sim$ 6m);
 
-\item It would be easier to understand and separate readout noise, dark
+\item understanding and separation of readout noise, dark
   current and sky noise.
 
 \end{enumerate}
@@ -96,21 +100,20 @@ advantages in terms of systematic control over the existing strategy.
 \begin{enumerate}
 
 \item PSF variations will be much more pronounced over very short
-  exposures and might require further modeling. 
+  exposures and might require further modeling;
 
-\item Cosmic rays will be preferentially lie in long exposures,
-  thus taking up SNR than in standard scheme, but area lost to cosmic
-  rays is expected to be negligible.
+\item cosmic rays would preferentially be found in the long exposures and
+  thus masking them would take out higher SNR data (but
+  area lost to cosmic rays is expected to be negligible);
 
-\item It would require better algorithms for differencing two 15s
-  exposures, but note that naive differencing would never work due to
-  changes in PSF and observing angles over 15s timescales.
+\item better algorithms will be required for differencing two 15s
+  exposures (but note that naive differencing would never work due to
+  changes in PSF and observing angles over 15s timescales);
 
-\item This change would make it more difficult to understand selection
-  effects for transient phenomena, but note again that these will have
-  to be Monte-Carloed anyway.
+\item more complicated selection effects for transient phenomena (but
+  note again that these will be found by Monte Carlo simulations in either scheme);
 
-\item Users working with individual exposures will have one more
+\item users working with individual exposures will have one more
   variable aspect to deal with.
 
 \end{enumerate}
@@ -118,11 +121,11 @@ advantages in terms of systematic control over the existing strategy.
 \subsection*{Technical considerations}
 
 \begin{enumerate}
-\item The lower limit, set to 2s above is set by the requirement that
-  you need to have sufficient integration to be able to find and
-  remove cosmic rays and the find sufficient stars in the field to
+\item The lower limit, set to 2s above, is given by the requirement
+  that sufficient integration is needed in order to find and remove
+  cosmic rays and the find sufficient stars in the field to
   characterize the PSF at sufficiently high density across the focal
-  plane. The precise lower limit should be evaluated through MC
+  plane. The precise lower limit should be evaluated through Monte Carlo
   simulations.
 
 \item Additional constraint on the lower limit is the minimum exposure
@@ -144,9 +147,10 @@ advantages in terms of systematic control over the existing strategy.
   invisible to planning outside 30s window. Since the object detection
   will be done on the coadds, it does not matter whether some
   exposures are so short that object is not detected in them -- an
-  optimal analysis cannot loose in counting the total number of photons.
+  optimal analysis cannot loose count of the total number of photons.
 
-\item Ability to remove cosmic rays should remain unchanged with 2s exposures.
+\item Ability to remove cosmic rays should remain unchanged with 2s
+  exposures.
 \end{enumerate}
 
 \end{document}
